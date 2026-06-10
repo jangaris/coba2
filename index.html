@@ -1,11 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h2>hallo world</h2>
-  </body>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display dan Position</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      padding-top: 60px;
+      background-color: #f5f5f5;
+    }
+
+    /* Navbar fixed di atas */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: darkblue;
+      padding: 15px 20px;
+    }
+
+    .navbar a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .konten {
+      padding: 20px;
+    }
+
+    /* Kartu yang berjajar */
+    .kartu {
+      display: inline-block;
+      width: 200px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    /* Badge di pojok kanan atas kartu */
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: darkblue;
+      color: white;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#">Beranda</a>
+    <a href="#">Materi</a>
+    <a href="#">Kontak</a>
+  </div>
+
+  <div class="konten">
+    <h1>Modul Belajar</h1>
+
+    <div class="kartu">
+      <div class="badge">Baru</div>
+      <h3>HTML Dasar</h3>
+      <p>Pelajari struktur dasar halaman web.</p>
+    </div>
+
+    <div class="kartu">
+      <div class="badge">Populer</div>
+      <h3>CSS Lanjutan</h3>
+      <p>Kuasai layout dan styling modern.</p>
+    </div>
+
+    <div class="kartu">
+      <h3>JavaScript</h3>
+      <p>Tambahkan interaktivitas ke website.</p>
+    </div>
+  </div>
+
+</body>
 </html>
