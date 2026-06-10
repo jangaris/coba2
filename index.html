@@ -90,3 +90,153 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konsep Layering CSS</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f5f5f5;
+      padding: 80px 20px 20px;
+      margin: 0;
+    }
+
+    /* Navbar selalu di depan semua elemen */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: darkblue;
+      color: white;
+      padding: 15px 20px;
+      z-index: 100;
+    }
+
+    .kartu-wrapper {
+      display: inline-block;
+      margin-right: 20px;
+      vertical-align: top;
+    }
+
+    /* Kartu sebagai induk bertumpuk */
+    .kartu {
+      position: relative;
+      width: 200px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    /* Badge tampil di atas kartu */
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: crimson;
+      color: white;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    /* Overlay menutupi kartu di balik modal */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      display: none;
+    }
+
+    /* Modal tampil paling depan */
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      z-index: 300;
+      display: none;
+      text-align: center;
+    }
+
+    .tombol {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: darkblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .tombol-tutup {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">Navbar (z-index: 100)</div>
+
+  <div class="kartu-wrapper">
+    <div class="kartu">
+      <div class="badge">Baru</div>
+      <h3>HTML Dasar</h3>
+      <p>Pelajari struktur dasar halaman web.</p>
+      <button class="tombol" onclick="bukaModal()">Lihat Detail</button>
+    </div>
+  </div>
+
+  <div class="kartu-wrapper">
+    <div class="kartu">
+      <h3>CSS Lanjutan</h3>
+      <p>Kuasai layout dan styling modern.</p>
+      <button class="tombol" onclick="bukaModal()">Lihat Detail</button>
+    </div>
+  </div>
+
+  <!-- Overlay (z-index: 200) -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Modal (z-index: 300) -->
+  <div class="modal" id="modal">
+    <h2>Detail Materi</h2>
+    <p>Ini adalah modal dengan z-index: 300, tampil paling depan.</p>
+    <br>
+    <button class="tombol-tutup" onclick="tutupModal()">Tutup</button>
+  </div>
+
+  <script>
+    function bukaModal() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('modal').style.display = 'block';
+    }
+    function tutupModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
